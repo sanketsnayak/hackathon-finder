@@ -1,6 +1,5 @@
 "use client"
-import LoginComponent from "@/components/loginComponent"
-import { signIn } from "next-auth/react"
+import LoginComponent from "@/components/authComponents/loginComponent"
  
 export default function SignIn() {
   return (
