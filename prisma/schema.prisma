@@ -90,5 +90,5 @@ model Ideas {
   title String
   description String
   userId String
-  userId User @relation(fields: [userId], references: [id])
+  user User @relation(fields: [userId], references: [id])
 }
