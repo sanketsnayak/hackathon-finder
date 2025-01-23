@@ -47,7 +47,7 @@ model Session {
 model User {
   id            String    @id @default(cuid())
   name          String?
-  email         String?   @unique
+  email         String   @unique
   emailVerified DateTime? @map("email_verified")
   image         String?
   password      String
@@ -55,7 +55,7 @@ model User {
   sessions      Session[]
   hackathons    Hackathons[]
   chats         Chats[]
- 
+  ideas         Ideas[]
   @@map("users")
 }
  
@@ -83,4 +83,12 @@ model Chats {
   name String
   userId String
   user User @relation(fields: [userId], references: [id])
+}
+
+model Ideas {
+  id String @id @default(uuid())
+  title String
+  description String
+  userId String
+  userId User @relation(fields: [userId], references: [id])
 }

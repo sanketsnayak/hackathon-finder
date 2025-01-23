@@ -15,6 +15,7 @@ import { useForm } from "react-hook-form";
 import { loginSchema } from "@/schemas/loginSchema";
 import { z } from "zod";
 import { signIn } from "next-auth/react";
+import Link from "next/link";
 
 const LoginComponent = () => {
   const form = useForm<z.infer<typeof loginSchema>>({
@@ -87,6 +88,9 @@ const LoginComponent = () => {
             </Button>
           </form>
         </Form>
+              <Link className="ml-1 text-sky-500 text-sm flex items-center justify-center" href={'/register'}>
+              Register if you are new user
+              </Link>
         <div className="text-center text-gray-500 my-4">or</div>
         <Button
           onClick={() => signIn("github", { callbackUrl: "/" })}
